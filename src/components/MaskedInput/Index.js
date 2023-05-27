@@ -2,7 +2,7 @@ import React from 'react';
 import InputMask from 'react-input-mask';
 import { DivInput } from '../Input/styles';
 
-const MaskedInput = ({ value, onChange, name, mask, placeholder, text }) => {
+const MaskedInput = ({ value, onChange, name, mask, placeholder, text, yupValidate  }) => {
     function handleChange(event) {
         onChange({
             ...event,
@@ -24,6 +24,7 @@ const MaskedInput = ({ value, onChange, name, mask, placeholder, text }) => {
                 value={value}
                 onChange={handleChange}
             />
+            <span>{yupValidate}</span>
         </DivInput>
     );
 };

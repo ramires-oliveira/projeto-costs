@@ -69,10 +69,6 @@ export const DivProjectEdit = styled.div`
         width: 100%;
     }
 
-    .projectInfo span{
-        font-weight: bold;
-    }
-
     /* 
     ##Device = Desktops
     ##Screen = 1281px to higher resolution desktops

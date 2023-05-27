@@ -4,12 +4,14 @@ import { DivForm } from './styles';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import * as yup from 'yup';
 
 function FormContact({ handleSubmit, btnText, contactData }) {
 
     const [openModal, setOpenModal] = useState(false);
     const [checked, setChecked] = useState(false);
     const [contact, setContact] = useState(contactData || { name: '', email: '', message: '' });
+    const [errors, setErros] = useState();
 
     function ShowModal() {
         setChecked(false);
@@ -25,8 +27,11 @@ function FormContact({ handleSubmit, btnText, contactData }) {
         setContact({ ...contact, [e.target.name]: e.target.value })
     }
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault()
+
+        if (!(await validate())) return;
+
         handleSubmit(contact)
         setContact({
             name: '', email: '', message: ''
@@ -34,17 +39,42 @@ function FormContact({ handleSubmit, btnText, contactData }) {
         setChecked(false);
     }
 
+    async function validate() {
+        let schema = yup.object().shape({
+            name: yup.string()
+                .required("O campo Nome é obrigatório."),
+            email: yup.string().email('Campo Email inválido').
+                required('O campo Email é obrigatório'),
+            message: yup.string()
+                .required("O campo Nome é obrigatório."),
+        });
+
+        try {
+            await schema.validate(contact, { abortEarly: false })
+            return true;
+        } catch (error) {
+            const errors = {};
+
+            error.inner.forEach((err) => {
+                errors[err.path] = err.message;
+            });
+
+            setErros(errors);
+            return false;
+        }
+    }
+
     return (
         <DivForm>
             <form onSubmit={submit}>
                 <Input
-                    required
                     type="text"
                     text="Nome"
                     name="name"
                     placeholder="Entre com seu nome"
                     handleOnChange={handleChange}
                     value={contact.name}
+                    yupValidate={errors?.name}
                 />
 
                 <Input
@@ -54,6 +84,7 @@ function FormContact({ handleSubmit, btnText, contactData }) {
                     placeholder="Entre com seu email"
                     handleOnChange={handleChange}
                     value={contact.email}
+                    yupValidate={errors?.email}
                 />
 
                 <div className='textArea'>
@@ -67,6 +98,7 @@ function FormContact({ handleSubmit, btnText, contactData }) {
                         onChange={handleChange}
                         value={contact.message}
                     />
+                    <span>{errors?.message}</span>
                 </div>
 
                 <div className='check'>

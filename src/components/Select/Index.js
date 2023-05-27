@@ -1,6 +1,6 @@
 import { DivSelect } from './styles';
 
-function Select({ text, name, options, handleOnChange, value }){
+function Select({ text, name, options, handleOnChange, value, yupValidate }){
     return(
         <DivSelect>
             <label htmlFor={name}>{text}:</label>
@@ -10,11 +10,12 @@ function Select({ text, name, options, handleOnChange, value }){
                 onChange={handleOnChange} 
                 value={value || ''}
             >
-                <option>Selecione uma opção</option>
+                <option value='' disabled>Selecione uma opção</option>
                 {options.map((item) => (
                     <option value={item.id} key={item.id}>{item.name}</option>
                 ))}
             </select>
+            <span>{yupValidate}</span>
         </DivSelect>
     )
 }

@@ -1,10 +1,11 @@
 import { DivInput } from './styles';
 
-function Input({ required, type, text, name, placeholder, handleOnChange, value }){
+function Input({ type, text, name, placeholder, handleOnChange, value, yupValidate }){
     return(
         <DivInput>
             <label htmlFor={name}>{text}:</label>
-            <input type={type} required={required} name={name} id={name} placeholder={placeholder} onChange={handleOnChange} value={value}></input>
+            <input type={type} name={name} id={name} placeholder={placeholder} onChange={handleOnChange} value={value}></input>
+            <span>{yupValidate}</span>
         </DivInput>
     )
 }
