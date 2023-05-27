@@ -25,4 +25,9 @@ export const DivInput = styled.div`
         border: 0 none;
         outline: 0;
     } 
+
+    span{
+        color: red;
+        font-size: 14px;
+    }
 `;

@@ -33,8 +33,6 @@ function ProjectEdit() {
                     setServices(data.services)
                 }).catch((error) => console.log(error))
         }, 1000)
-
-        console.log(project)
     }, [id])
 
     function toggleProjectForm() {
