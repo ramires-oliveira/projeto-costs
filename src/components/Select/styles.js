@@ -20,5 +20,10 @@ export const DivSelect = styled.div`
         box-shadow: 0 0 0 0;
         border: 0 none;
         outline: 0;
-    } 
+    }
+
+    span{
+        color: red;
+        font-size: 14px;
+    }
 `;

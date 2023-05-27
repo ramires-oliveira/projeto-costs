@@ -16,7 +16,7 @@ const currencyConfig = {
     },
 };
 
-function BrlCurrencyComponent({ value, onChange, name, text }) {
+function BrlCurrencyComponent({ value, onChange, name, text, yupValidate }) {
 
     function handleChange(event, value, maskedValue) {
         // event.preventDefault();
@@ -43,6 +43,7 @@ function BrlCurrencyComponent({ value, onChange, name, text }) {
                 value={value}
                 onChange={handleChange}
             />
+            <span>{yupValidate}</span>
         </DivInput>
     );
 }

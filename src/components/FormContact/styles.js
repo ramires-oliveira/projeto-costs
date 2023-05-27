@@ -15,6 +15,11 @@ export const DivForm = styled.div`
         font-weight: bold;
     }
 
+    .textArea span{
+        color: red;
+        font-size: 14px;
+    }
+
     textarea{
         padding: 0.7em;
         border: 0 none;
@@ -45,4 +50,5 @@ export const DivForm = styled.div`
         text-decoration: underline;
         color: #012863;
     }
+
 `;
