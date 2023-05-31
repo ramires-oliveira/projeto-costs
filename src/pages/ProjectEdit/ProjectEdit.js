@@ -22,7 +22,7 @@ function ProjectEdit() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/projects/${id}`, {
+            fetch(`/api/projects/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ function ProjectEdit() {
         projectUpdate.services = serviceUpdate
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
 
-        fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
+        fetch(`/api/projects/${projectUpdate.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ function ProjectEdit() {
         project.cost = newCost
 
         //Atualiza projeto
-        fetch(`http://localhost:5000/projects/${project.id}`, {
+        fetch(`/api/projects/${project.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': 'application/json'
@@ -122,7 +122,7 @@ function ProjectEdit() {
             setTypeMessage('error')
         }
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
+        fetch(`/api/projects/${project.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': 'application/json'

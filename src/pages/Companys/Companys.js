@@ -18,7 +18,7 @@ function Company() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch('http://localhost:5000/companys', {
+            fetch('/api/companys', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function Company() {
                     setRemoveLoading(true)
                 }).catch((error) => console.log(error))
 
-            fetch(`http://localhost:5000/projects`, {
+            fetch(`/api/projects`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ function Company() {
             setTypeMessage('error')
             return false
         } else {
-            fetch(`http://localhost:5000/companys/${id}`, {
+            fetch(`/api/companys/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
