@@ -8,7 +8,7 @@ import * as yup from 'yup';
 
 function Form({ handleSubmit, btnText, projectData }) {
 
-    const [categories, setCategories] = useState([]);
+    const [categories] = useState([]);
     const [companys, setCompanys] = useState([]);
     const [project, setProject] = useState(projectData || {})
     const [errors, setErros] = useState();
