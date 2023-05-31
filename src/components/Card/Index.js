@@ -19,7 +19,7 @@ function Card({id, name, budget, company, category, handleRemove}){
                 <span>Orçamento: </span>R${budget}
             </p>
             <p className='category'>
-                <span className={category != undefined ? category.toString().toLowerCase() : ""}></span>{category}
+                <span className={category !== undefined ? category.toString().toLowerCase() : ""}></span>{category}
             </p>
             <div className='actions'>
                 <Link to={`/project/${id}`}>

@@ -23,7 +23,7 @@ function FormCompany({ handleSubmit, btnText, companyData }) {
             name: yup.string()
                 .required("O campo Nome é obrigatório."),
             cnpj: yup.string()
-                .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/, 'CNPJ inválido')
+                .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/, 'CNPJ inválido')//eslint-disable-line
                 .required('O campo CNPJ é obrigatório.'),
             nameFantasy: yup.string()
                 .required("O campo Nome Fantasia é obrigatório."),

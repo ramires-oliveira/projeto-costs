@@ -5,9 +5,10 @@ import { Close } from "@mui/icons-material";
 function Message({ type, text }) {
 
     const [open, setOpen] = useState(true)
-    let timer;
 
     useEffect(() => {
+        let timer;
+
         if(open){
             timer = setTimeout(() => {
                 setOpen(false)
@@ -22,7 +23,7 @@ function Message({ type, text }) {
                 <Collapse in={open}>
                     <Alert
                         severity={type}
-                        {...type == "success" && {
+                        {...type === "success" && {
                             style:{ backgroundColor: '#32CD32' }
                         }}
                         action={
