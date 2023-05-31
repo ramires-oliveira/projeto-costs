@@ -20,11 +20,14 @@ function Form({ handleSubmit, btnText, projectData }) {
                 'Content-Type': 'application/json'
             },
         })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setCategories(data)
-            })
-            .catch(err => console.log(err))
+            .then((resp) => {
+                console.log(resp);
+            });
+
+            // .then((data) => {
+            //     setCategories(data)
+            // })
+            // .catch(err => console.log(err))
 
         fetch("/api/companys", {
             method: "GET",
