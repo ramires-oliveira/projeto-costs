@@ -18,7 +18,7 @@ function CompanyEdit() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/companys/${id}`, {
+            fetch(`/api/companys/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ function CompanyEdit() {
     function editPost(company) {
         setMessage('')
 
-        fetch(`http://localhost:5000/companys/${company.id}`, {
+        fetch(`/api/companys/${company.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': 'application/json'

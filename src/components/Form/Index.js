@@ -14,7 +14,7 @@ function Form({ handleSubmit, btnText, projectData }) {
     const [errors, setErros] = useState();
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories", {
+        fetch("/api/categories", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ function Form({ handleSubmit, btnText, projectData }) {
             })
             .catch(err => console.log(err))
 
-        fetch("http://localhost:5000/companys", {
+        fetch("/api/companys", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
