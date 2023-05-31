@@ -44,7 +44,7 @@ function Contact() {
                         </div>
                         <div className='info'>
                             <div>
-                                <a href='https://www.google.com/maps/place/Alfenas,+MG,+37130-000/@-21.4273559,-45.9963877,13z/data=!3m1!4b1!4m6!3m5!1s0x94b5f433c6140beb:0xbc2ca390b524e1!8m2!3d-21.4245173!4d-45.9470205!16s%2Fg%2F11bxg08bgy' target="_blank"><ImLocation /></a>
+                                <a href='https://www.google.com/maps/place/Alfenas,+MG,+37130-000/@-21.4273559,-45.9963877,13z/data=!3m1!4b1!4m6!3m5!1s0x94b5f433c6140beb:0xbc2ca390b524e1!8m2!3d-21.4245173!4d-45.9470205!16s%2Fg%2F11bxg08bgy' target="_blank" rel="noreferrer"><ImLocation /></a>
                             </div>
                             <div className='infoText'>
                                 <span>Localização do nosso escritório</span>
@@ -53,7 +53,7 @@ function Contact() {
                         </div>
                         <div className='info'>
                             <div>
-                                <a href='https://api.whatsapp.com/send?phone=5535988034878' target="_blank"><BsWhatsapp /></a>
+                                <a href='https://api.whatsapp.com/send?phone=5535988034878' target="_blank"  rel="noreferrer"><BsWhatsapp /></a>
                             </div>
                             <div className='infoText'>
                                 <span>Whatsapp</span>

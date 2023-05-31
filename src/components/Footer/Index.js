@@ -6,13 +6,13 @@ export function Footer() {
         <ContainerFooter>
             <ul className='socialList'>
                 <li>
-                    <a href='https://www.facebook.com/ramires.oliveiralourenco.5' target='_blank'><FaFacebook /></a>
+                    <a href='https://www.facebook.com/ramires.oliveiralourenco.5' target='_blank' rel="noreferrer"><FaFacebook /></a>
                 </li>
                 <li>
-                    <a href='https://www.instagram.com/ramires_035/' target='_blank'><FaInstagram /></a>
+                    <a href='https://www.instagram.com/ramires_035/' target='_blank' rel="noreferrer"><FaInstagram /></a>
                 </li>
                 <li>
-                    <a href='https://www.linkedin.com/in/ramires-de-oliveira-louren%C3%A7o-3639891b0/' target='_blank'><FaLinkedin /></a>
+                    <a href='https://www.linkedin.com/in/ramires-de-oliveira-louren%C3%A7o-3639891b0/' target='_blank' rel="noreferrer"><FaLinkedin /></a>
                 </li>
             </ul>
             <p className='copyRight'>

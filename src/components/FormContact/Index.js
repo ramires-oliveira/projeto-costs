@@ -43,8 +43,8 @@ function FormContact({ handleSubmit, btnText, contactData }) {
         let schema = yup.object().shape({
             name: yup.string()
                 .required("O campo Nome é obrigatório."),
-            email: yup.string().email('Campo Email inválido').
-                required('O campo Email é obrigatório'),
+            email: yup.string().email('Campo Email inválido')
+                .required('O campo Email é obrigatório'),
             message: yup.string()
                 .required("O campo Nome é obrigatório."),
         });
@@ -103,7 +103,7 @@ function FormContact({ handleSubmit, btnText, contactData }) {
 
                 <div className='check'>
                     <input type="checkbox" name="termo" id="checkbox" checked={checked} onClick={() => setChecked(!checked)} onChange={() => { }} />
-                    <label>Li, e aceito os <a onClick={() => ShowModal()}>Termos de Privacidade.</a></label>
+                    <label>Li, e aceito os <a onClick={() => ShowModal()} href="/#">Termos de Privacidade.</a></label>
                 </div>
 
                 <ButtonSubmit text={btnText} widthAll="widthAll" disabledTerm={!checked} />
