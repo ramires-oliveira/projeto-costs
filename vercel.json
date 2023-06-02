@@ -7,16 +7,5 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "https://projeto-costs-tau.vercel.app//api/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "rewrites": [
-    { "source": "/api/.*", "destination": "/api/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/api/.*",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-cache" }
-      ]
-    }
   ]
 }
