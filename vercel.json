@@ -1,26 +1,22 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    },
-    {
-      "src": "api/**/*.json",
-      "use": "@vercel/static",
-      "config": {
-        "zeroConfig": true
-      }
-    }
+    { "src": "package.json", "use": "@vercel/static-build" },
+    { "src": "api/db.json", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": ".*", "dest": "/index.html" }
+    { "src": "/api/(.*)", "dest": "https://projeto-costs-tau.vercel.app//api/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ],
-  "env": {
-    "API_BASE_URL": "/api"
-  }
+  "rewrites": [
+    { "source": "/api/.*", "destination": "/api/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/.*",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    }
+  ]
 }
