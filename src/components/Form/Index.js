@@ -8,28 +8,25 @@ import * as yup from 'yup';
 
 function Form({ handleSubmit, btnText, projectData }) {
 
-    const [categories] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [companys, setCompanys] = useState([]);
     const [project, setProject] = useState(projectData || {})
     const [errors, setErros] = useState();
 
     useEffect(() => {
-        fetch("/api/categories", {
+        fetch("http://localhost:5000/categories", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
             },
         })
-            .then((resp) => {
-                console.log(resp);
-            });
+            .then((resp) => resp.json())
+            .then((data) => {
+                setCategories(data)
+            })
+            .catch(err => console.log(err))
 
-            // .then((data) => {
-            //     setCategories(data)
-            // })
-            // .catch(err => console.log(err))
-
-        fetch("/api/companys", {
+        fetch("http://localhost:5000/companys", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'

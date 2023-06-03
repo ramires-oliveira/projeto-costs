@@ -13,7 +13,7 @@ function Contact() {
     function createPost(contact) {
         setContactMessage('');
 
-        fetch("/api/contacts", {
+        fetch("http://localhost:5000/contacts", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'

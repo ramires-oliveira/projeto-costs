@@ -1,6 +1,5 @@
 {
-  "projects": [
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,
@@ -19,8 +18,7 @@
       "name": "Planejamento"
     }
   ],
-  "companys": [
-  ],
+  "companys": [],
   "contacts": [
   ]
 }

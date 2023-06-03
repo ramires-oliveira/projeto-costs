@@ -9,7 +9,7 @@ function NewCompany(){
     const navigate = useNavigate();
 
     function createPost(company){
-        fetch("/api/companys",{
+        fetch("http://localhost:5000/companys",{
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
