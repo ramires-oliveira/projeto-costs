@@ -28,14 +28,15 @@ function FormContact({ handleSubmit, btnText, contactData }) {
     }
 
     const submit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (!(await validate())) return;
 
-        handleSubmit(contact)
+        handleSubmit(contact);
         setContact({
             name: '', email: '', message: ''
-        })
+        });
+        setErros('');
         setChecked(false);
     }
 
@@ -46,7 +47,7 @@ function FormContact({ handleSubmit, btnText, contactData }) {
             email: yup.string().email('Campo Email inválido')
                 .required('O campo Email é obrigatório'),
             message: yup.string()
-                .required("O campo Nome é obrigatório."),
+                .required("O campo Mensagem é obrigatório."),
         });
 
         try {
@@ -103,7 +104,7 @@ function FormContact({ handleSubmit, btnText, contactData }) {
 
                 <div className='check'>
                     <input type="checkbox" name="termo" id="checkbox" checked={checked} onClick={() => setChecked(!checked)} onChange={() => { }} />
-                    <label>Li, e aceito os <a onClick={() => ShowModal()} href="/#">Termos de Privacidade.</a></label>
+                    <label>Li, e aceito os <a onClick={() => ShowModal()} >Termos de Privacidade.</a></label>
                 </div>
 
                 <ButtonSubmit text={btnText} widthAll="widthAll" disabledTerm={!checked} />

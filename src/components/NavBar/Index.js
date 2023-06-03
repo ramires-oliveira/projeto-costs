@@ -39,10 +39,10 @@ export function NavBar() {
                         <Link to="/" onClick={toggleMenu && toggleNav}>Home</Link>
                     </li>
                     <li className='items'>
-                        <Link to="/projects" onClick={toggleMenu && toggleNav}>Projetos</Link>
+                        <Link to="/companys" onClick={toggleMenu && toggleNav}>Empresa</Link>
                     </li>
                     <li className='items'>
-                        <Link to="/companys" onClick={toggleMenu && toggleNav}>Empresa</Link>
+                        <Link to="/projects" onClick={toggleMenu && toggleNav}>Projetos</Link>
                     </li>
                     <li className='items'>
                         <Link to="/contact" onClick={toggleMenu && toggleNav}>Contato</Link>
