@@ -11,7 +11,7 @@ Instala as dependências necessárias para a execução do projeto.
 
 ### `npm run backend`
 
-Este comando carregará o db.json (API Fake).
+Inicializa o db.json (API Fake).
 
 ### `npm start`
 
