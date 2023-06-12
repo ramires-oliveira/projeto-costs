@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const DivContainer = styled.div`
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 3em;
+    padding: 3em 3em 8em 3em;
 
     h1{
         margin-bottom: 0.5em;
@@ -20,7 +20,7 @@ export const DivContainer = styled.div`
     */
     @media (min-width: 280px) and (max-width: 480px) {
     
-        padding: 1.5em;
+        padding: 1.5em 1.5em 8em 1.5em;
     
     }
 `;

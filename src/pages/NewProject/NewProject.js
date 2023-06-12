@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import Container from '../../components/Container/Index';
 import Form from '../../components/Form/Index';
 import { DivContainer } from './styles';
-import { useNavigate } from 'react-router-dom';
 
 
 function NewProject() {
@@ -9,24 +9,26 @@ function NewProject() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const navigate = useNavigate();
 
-    function createPost(project){
+    function createPost(project) {
+
+        project.budget = project.budget.toFixed(2);
 
         // initialize costs and services
-        project.cost = 0
+        project.cost = 0.00
         project.services = []
 
-        fetch("http://localhost:5000/projects",{
+        fetch("http://localhost:5000/projects", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(project),
         })
-        .then((resp) => resp.json)
-        .then((data) => {
-            navigate("/projects", {state:{message: true, type:"success", text: "Projeto cadastrado com sucesso!"}})
-        })
-        .catch(err => console.log(err))
+            .then((resp) => resp.json)
+            .then((data) => {
+                navigate("/projects", { state: { message: true, type: "success", text: "Projeto cadastrado com sucesso!" } })
+            })
+            .catch(err => console.log(err))
     }
 
     return (

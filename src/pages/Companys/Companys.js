@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import CompanysCard from '../../components/CompanysCard/Index';
 import Container from '../../components/Container/Index';
 import LinkButton from '../../components/LinkButton/Index';
-import { DivCompanys } from './styles';
-import CompanysCard from '../../components/CompanysCard/Index';
 import Loading from '../../components/Loading/Index';
 import Message from '../../components/Message/Index';
+import { DivCompanys } from './styles';
 
 function Company() {
 
@@ -45,8 +45,8 @@ function Company() {
         setMessage('')
     }
 
-    async function RemoveCompany(id){
-        await clearMessage();        
+    async function RemoveCompany(id) {
+        await clearMessage();
 
         let notAllowRemoval = false;
 
@@ -57,7 +57,7 @@ function Company() {
         ))
 
         if (notAllowRemoval === true) {
-            setMessage('Empresa vinculada a um serviço, não é possível excluir!')
+            setMessage('Empresa vinculada a um projeto, não é possível excluir!')
             setTypeMessage('error')
             return false
         } else {

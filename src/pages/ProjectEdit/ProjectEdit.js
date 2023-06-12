@@ -1,13 +1,13 @@
-import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import Loading from '../../components/Loading/Index';
+import { v4 as uuidv4 } from 'uuid';
 import Container from '../../components/Container/Index';
-import { DivProjectEdit } from './styles';
 import Form from '../../components/Form/Index';
+import Loading from '../../components/Loading/Index';
 import Message from '../../components/Message/Index';
-import ServiceForm from '../../components/ServiceForm/Index';
 import ServiceCard from '../../components/ServiceCard/Index';
+import ServiceForm from '../../components/ServiceForm/Index';
+import { DivProjectEdit } from './styles';
 
 function ProjectEdit() {
 
@@ -29,6 +29,7 @@ function ProjectEdit() {
                 },
             }).then((resp => resp.json()))
                 .then((data) => {
+                    console.log(data.cost)
                     setProject(data)
                     setServices(data.services)
                 }).catch((error) => console.log(error))
@@ -54,6 +55,7 @@ function ProjectEdit() {
 
         projectUpdate.services = serviceUpdate
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
+        projectUpdate.cost = projectUpdate.cost.toFixed(2)
 
         fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
             method: 'PATCH',
@@ -81,13 +83,13 @@ function ProjectEdit() {
         const lastService = project.services[project.services.length - 1]
 
         lastService.id = uuidv4()
-
+        debugger;
         const lastServiceCost = lastService.cost
 
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
 
         //Verifica se o valor ultrapassou o valor total do projeto
-        if (newCost > parseFloat(project.budget)) {
+        if (newCost.toFixed(2) > parseFloat(project.budget)) {
             setMessage('Orçamento ultrapassado, verifique o valor do serviço!')
             setTypeMessage('error')
             project.services.pop()
@@ -95,7 +97,7 @@ function ProjectEdit() {
         }
 
         //Adiciona o valor do serviço no valor total do projeto
-        project.cost = newCost
+        project.cost = newCost.toFixed(2)
 
         //Atualiza projeto
         fetch(`http://localhost:5000/projects/${project.id}`, {
@@ -171,9 +173,11 @@ function ProjectEdit() {
                                     <p>
                                         <span>Total Utilizado: </span>R${project?.cost}
                                     </p>
-                                    <p>
-                                        <span>Saldo Disponível: </span>R${project?.budget - project?.cost}
-                                    </p>
+                                    {project?.cost > 0 &&
+                                        <p>
+                                            <span>Saldo Disponível: </span>R${(project?.budget - project?.cost).toFixed(2)}
+                                        </p>
+                                    }
                                 </div>
                             ) : (
                                 <div className="projectInfo">

@@ -6,7 +6,7 @@ export const HomeContainer = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4em;
+    padding: 2em 2em 8em 2em;
 
     h1{
         font-size: 2em;
@@ -35,7 +35,7 @@ export const HomeContainer = styled.section`
     */
     @media (min-width: 280px) and (max-width: 480px) {
     
-        padding: 3em;
+        padding: 2em 2em 8em 2em;
 
         img{
             width: 230px;

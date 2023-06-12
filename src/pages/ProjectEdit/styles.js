@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DivProjectEdit = styled.div`
-    padding: 2em;
+    padding: 2em 2em 8em 2em;
     width: 100%;
 
     .projectHeader{

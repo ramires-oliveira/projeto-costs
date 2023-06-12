@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DivProject = styled.div`
-    padding: 2em;
+    padding: 2em 2em 8em 2em;
 
     .title{
         display: flex;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContactContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: 50px;
+    padding: 2em 2em 9em 2em;
     font-size: 15px;
     display: flex;
     flex-direction: column;

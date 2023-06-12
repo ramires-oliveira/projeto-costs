@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ContainerFooter = styled.div`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #222;
     color: #FFF;
     padding: 1em;
